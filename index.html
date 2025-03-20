@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinta Islami untuk Sheren</title>
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(45deg, purple, orange, yellow);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .info-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid yellow;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            animation: pulse 3s infinite;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 10px yellow;
+        }
+        iframe {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border-radius: 10px;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            color: yellow;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        ✨ Cinta Islam untuk Sheren ✨
+    </div>
+
+    <div class="info-box">
+        <div class="info-item">
+            <span>🔋</span> <span id="battery">90%</span>
+        </div>
+        <div class="info-item">
+            <span>⏰</span> <span id="time">10:19:00</span>
+        </div>
+        <div class="info-item">
+            <span>📅</span> <span id="date">20 Maret 2025</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>💖 Cintaku untukmu, Sheren 💖</h2>
+        <p>Dalam setiap doa, aku berharap hubungan kita selalu dalam lindungan Allah, penuh berkah, dan langgeng hingga surga-Nya.</p>
+        <p style="font-size: 18px;">اللهم اجعل حبنا مباركًا، واجمع بيننا في الخير، واحفظنا من كل سوء</p>
+        <p><i>"Ya Allah, berkahilah cinta kami, satukanlah kami dalam kebaikan, dan lindungilah kami dari segala keburukan."</i></p>
+        
+        <!-- Video YouTube -->
+        <iframe src="https://www.youtube.com/embed/moZNGtKcOFg" allowfullscreen></iframe>
+        
+        <!-- Link Media Sosial -->
+        <div class="social-links">
+            <a href="https://instagram.com/dash1.id" target="_blank">📷 Instagram</a> |
+            <a href="https://facebook.com/BarzxSta" target="_blank">📘 Facebook</a> |
+            <a href="https://wa.me/6287825946251" target="_blank">📱 WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Biografi Pembuat -->
+    <div class="footer">
+        <p>👨‍💻 Dibuat oleh: <b>Akbar</b></p>
+        <p>Instagram: <a href="https://instagram.com/dash1.id" target="_blank">@dash1.id</a></p>
+        <p>WhatsApp: <a href="https://wa.me/6287825946251" target="_blank">+62 878-2594-6251</a></p>
+        <p>Facebook: <a href="https://facebook.com/BarzxSta" target="_blank">Barzx Sta</a></p>
+    </div>
+
+    <script>
+        function updateTime() {
+            let now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+            let date = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            document.getElementById('time').innerText = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('date').innerText = date;
+        }
+
+        function updateBattery() {
+            if (navigator.getBattery) {
+                navigator.getBattery().then(battery => {
+                    let level = Math.round(battery.level * 100);
+                    document.getElementById('battery').innerText = `${level}%`;
+                });
+            }
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+        updateBattery();
+    </script>
+</body>
+  </html>
